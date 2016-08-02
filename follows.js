@@ -148,9 +148,9 @@
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
 									
 									if(state==0){
-										renderer: 'scatterplot',
+										renderer: 'scatterplot';
 									}else{
-										renderer: 'line',
+										renderer: 'line';
 									}
 									
 						 			// Build Graph
