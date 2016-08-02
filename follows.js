@@ -146,20 +146,19 @@
 
 									// Initialize Graph DOM Element
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
-
+									
+									if(state==0){
+										renderer: 'scatterplot',
+									}else{
+										renderer: 'line',
+									}
+									
 						 			// Build Graph
 									var graph = new Rickshaw.Graph( {
 										element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 										width: 600,
 										height: 200,
-										
-										if(state==0)
-										{
-											renderer: 'scatterplot',
-										}else{
-											renderer: 'line',
-										}
-										
+										renderer,
 										min: parseFloat(datastream.min_value) - .25*(parseFloat(datastream.max_value) - parseFloat(datastream.min_value)),
 										max: parseFloat(datastream.max_value) + .25*(parseFloat(datastream.max_value) - parseFloat(datastream.min_value)),
 										padding: {
