@@ -19,9 +19,10 @@
 		applicationName	= 'Visualisierung FBH-Anhänger', // Replaces Xively logo in the header
 		dataDuration	= '20days', // Default duration of data to be displayed // ref: https://xively.com/dev/docs/api/data/read/historical_data/
 		dataInterval	= 1800, // Default interval for data to be displayed (in seconds)
-		dataColor		= '0A1922', // CSS HEX value of color to represent data (omit leading #)
-		hideForm		= 1; // To hide input form use value of 1, otherwise set to 0
-
+		dataColor	= '0A1922', // CSS HEX value of color to represent data (omit leading #)
+		hideForm	= 1; // To hide input form use value of 1, otherwise set to 0
+		state 		= 0; // First graph is a scatterplot, second one is a linegraph(Soll/Ist)
+		
 // Function Declarations
 
 	// URL Parameters
@@ -151,7 +152,14 @@
 										element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 										width: 600,
 										height: 200,
-										renderer: 'scatterplot',
+										
+										if(state==0)
+										{
+											renderer: 'scatterplot',
+										}else{
+											renderer: 'line',
+										}
+										
 										min: parseFloat(datastream.min_value) - .25*(parseFloat(datastream.max_value) - parseFloat(datastream.min_value)),
 										max: parseFloat(datastream.max_value) + .25*(parseFloat(datastream.max_value) - parseFloat(datastream.min_value)),
 										padding: {
@@ -162,8 +170,8 @@
 										},
 										series: series
 									});
-
 									graph.render();
+									state = 1;
 
 									var ticksTreatment = 'glow';
 
