@@ -182,7 +182,7 @@
 											series: series
 										});
 									}
-								}
+								
 								graph.render();
 								state = 1;
 
