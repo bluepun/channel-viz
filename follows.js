@@ -232,6 +232,7 @@
 			}
 			$('#loadingData').foundation('reveal', 'close');
 		});
+		state = 0;
 	}
 
 	function setFeeds(feeds) {
