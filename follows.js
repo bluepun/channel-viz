@@ -71,13 +71,15 @@
 	function setApiKey(key) {
 		xively.setKey(key);
 	}
-
+	
+//updateFeeds-Function! Should set and update both graphs------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	function updateFeeds(feedId, datastreamIds, duration, interval) {
 		xively.feed.get(feedId, function(feedData) {
 			if(feedData.datastreams) {
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
 						datastreamIds += datastream.id + " ";
+						consol.log("Datastream ID: " + datastreamIds);
 					});
 				}
 				feedData.datastreams.forEach(function(datastream) {
@@ -234,6 +236,7 @@
 		});
 		state = 0;
 	}
+//updateFeeds-Function! Should set and update both graphs------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	function setFeeds(feeds) {
 		$('#welcome').addClass('hidden');
