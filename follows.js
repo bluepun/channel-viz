@@ -80,12 +80,14 @@
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
 						datastreamIds += datastream.id + " ";
-						console.log("Datastream ID(line 82): " + datastreamIds);
+						console.log("Datastream ID(line 83): " + datastreamIds);
+						console.log("Datastream.id(line 84): " + datastream.id);
 					});
 				}
-				console.log("Datastream ID(line 86): " + datastreamIds);
+				console.log("Datastream ID(line 87): " + datastreamIds);
 				feedData.datastreams.forEach(function(datastream) {
-				console.log("Datastream ID(line 88): " + datastreamIds);
+				console.log("Datastream ID(line 89): " + datastreamIds);
+				console.log("Datastream.id(line 90): " + datastream.id);
 					var now = new Date();
 					var then = new Date();
 					var updated = new Date;
@@ -136,7 +138,10 @@
 
 								// Historical Datapoints
 								if(datastreamData.datapoints) {
-								console.log("Datastream ID(line 139): " + datastreamIds);
+								console.log("Datastream ID(line 141): " + datastreamIds);
+								console.log("Datastream.id(line 142): " + datastream.id);
+								console.log("FeedID (line 143): " + feedId);
+								
 
 									// Add Each Datapoint to Array
 									datastreamData.datapoints.forEach(function(datapoint) {
