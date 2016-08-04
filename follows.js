@@ -74,15 +74,18 @@
 	
 //updateFeeds-Function! Should set and update both graphs------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	function updateFeeds(feedId, datastreamIds, duration, interval) {
+		console.log("Datastream ID(line 77): " + datastreamIds);
 		xively.feed.get(feedId, function(feedData) {
 			if(feedData.datastreams) {
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
 						datastreamIds += datastream.id + " ";
-						console.log("Datastream ID: " + datastreamIds);
+						console.log("Datastream ID(line 82): " + datastreamIds);
 					});
 				}
+				console.log("Datastream ID(line 86): " + datastreamIds);
 				feedData.datastreams.forEach(function(datastream) {
+				console.log("Datastream ID(line 88): " + datastreamIds);
 					var now = new Date();
 					var then = new Date();
 					var updated = new Date;
@@ -133,6 +136,7 @@
 
 								// Historical Datapoints
 								if(datastreamData.datapoints) {
+								console.log("Datastream ID(line 139): " + datastreamIds);
 
 									// Add Each Datapoint to Array
 									datastreamData.datapoints.forEach(function(datapoint) {
