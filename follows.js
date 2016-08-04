@@ -79,7 +79,7 @@
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
 						datastreamIds += datastream.id + " ";
-						consol.log("Datastream ID: " + datastreamIds);
+						console.log("Datastream ID: " + datastreamIds);
 					});
 				}
 				feedData.datastreams.forEach(function(datastream) {
