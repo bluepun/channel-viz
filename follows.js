@@ -73,21 +73,20 @@
 	}
 	
 //updateFeeds-Function! Should set and update both graphs------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	function updateFeeds(feedId, datastreamIds, duration, interval) {
-		console.log("Datastream ID(line 77): " + datastreamIds);
+	function updateFeeds(feedId, datastreamIds, duration, interval) { 
+	//datastreamIds is now initialized, the value of it is 'undifined'
 		xively.feed.get(feedId, function(feedData) {
 			if(feedData.datastreams) {
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
 						datastreamIds += datastream.id + " ";
-						console.log("Datastream ID(line 83): " + datastreamIds);
-						console.log("Datastream.id(line 84): " + datastream.id);
+						//one after the other Xively ID's get saved on datastream(including 'undifined' as first part of the string)
+						//datastream.id is the ID the program works right now with(FBH-VL-Ist, FBH-VL-Soll, Meta)! Random order
 					});
 				}
-				console.log("Datastream ID(line 87): " + datastreamIds);
+				//After this loop datastream includes all 'undefined' and all 3 ID's
 				feedData.datastreams.forEach(function(datastream) {
-				console.log("Datastream ID(line 89): " + datastreamIds);
-				console.log("Datastream.id(line 90): " + datastream.id);
+					//datastream.id is the ID the program works right now with(FBH-VL-Ist, FBH-VL-Soll, Meta)! Randome order
 					var now = new Date();
 					var then = new Date();
 					var updated = new Date;
@@ -138,10 +137,6 @@
 
 								// Historical Datapoints
 								if(datastreamData.datapoints) {
-								console.log("Datastream ID(line 141): " + datastreamIds);
-								console.log("Datastream.id(line 142): " + datastream.id);
-								console.log("FeedID (line 143): " + feedId);
-								
 
 									// Add Each Datapoint to Array
 									datastreamData.datapoints.forEach(function(datapoint) {
