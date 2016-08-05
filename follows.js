@@ -84,9 +84,9 @@
 						//datastream.id is the ID the program works right now with(FBH-VL-Ist, FBH-VL-Soll, Meta)! Random order
 					
 						//Try to compare the hard coded Id's to the datastream.id String
-						datastream.id.localeCompare("FBH-VL-Ist") console.log("FBH-VL-Ist");
-						datastream.id.localeCompare("FBH-VL-Soll") console.log("FBH-VL-Soll");
-						datastream.id.localeCompare("Meta") console.log("Meta");
+						if(datastream.id.localeCompare("FBH-VL-Ist")==0) console.log("FBH-VL-Ist");
+						if(datastream.id.localeCompare("FBH-VL-Soll")==0) console.log("FBH-VL-Soll");
+						if(datastream.id.localeCompare("Meta")==0) console.log("Meta");
 						
 					});
 				}
