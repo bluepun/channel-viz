@@ -82,6 +82,12 @@
 						datastreamIds += datastream.id + " ";
 						//one after the other Xively ID's get saved on datastream(including 'undifined' as first part of the string)
 						//datastream.id is the ID the program works right now with(FBH-VL-Ist, FBH-VL-Soll, Meta)! Random order
+					
+						//Try to compare the hard coded Id's to the datastream.id String
+						datastream.id.localeCompare("FBH-VL-Ist") console.log("FBH-VL-Ist");
+						datastream.id.localeCompare("FBH-VL-Soll") console.log("FBH-VL-Soll");
+						datastream.id.localeCompare("Meta") console.log("Meta");
+						
 					});
 				}
 				//After this loop datastream includes all 'undefined' and all 3 ID's
