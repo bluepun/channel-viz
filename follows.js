@@ -170,7 +170,7 @@
 											series: series
 										});
 									}
-									if(datastream.id.localeCompare("FBH-VL-Soll")==0{
+									if(datastream.id.localeCompare("FBH-VL-Soll")==0){
 										// Build Graph line
 										var graph = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
