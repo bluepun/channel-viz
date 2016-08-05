@@ -169,10 +169,11 @@
 											},
 											series: series
 										});
+										graph.render();
 									}
 									if(datastream.id.localeCompare("FBH-VL-Soll")==0){
 										// Build Graph line
-										var graph = new Rickshaw.Graph( {
+										var graphline = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 											width: 600,
 											height: 200,
@@ -187,12 +188,11 @@
 											},
 											series: series
 										});
+										graphline.render();
 									}
 									if(datastream.id.localeCompare("Meta")==0){
 										console.log("Meta");
 									}
-									
-									graph.render();
 
 									var ticksTreatment = 'glow';
 
