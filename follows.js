@@ -21,7 +21,7 @@
 		dataInterval	= 1800, // Default interval for data to be displayed (in seconds)
 		dataColor	= '0A1922', // CSS HEX value of color to represent data (omit leading #)
 		hideForm	= 1, // To hide input form use value of 1, otherwise set to 0
-		state 		= 0; // First graph is a scatterplot, second one is a linegraph(Soll/Ist)
+	//	state 		= 0; // First graph is a scatterplot, second one is a linegraph(Soll/Ist)
 		
 // Function Declarations
 
@@ -82,12 +82,6 @@
 						datastreamIds += datastream.id + " ";
 						//one after the other Xively ID's get saved on datastream(including 'undifined' as first part of the string)
 						//datastream.id is the ID the program works right now with(FBH-VL-Ist, FBH-VL-Soll, Meta)! Random order
-					
-						//Try to compare the hard coded Id's to the datastream.id String
-						if(datastream.id.localeCompare("FBH-VL-Ist")==0) console.log("FBH-VL-Ist");
-						if(datastream.id.localeCompare("FBH-VL-Soll")==0) console.log("FBH-VL-Soll");
-						if(datastream.id.localeCompare("Meta")==0) console.log("Meta");
-						
 					});
 				}
 				//After this loop datastream includes all 'undefined' and all 3 ID's
@@ -159,7 +153,7 @@
 									// Initialize Graph DOM Element
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
 									
-									if(state==0){
+									if(datastream.id.localeCompare("FBH-VL-Ist")==0){
 							 			// Build Graph scatterplot
 										var graph = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
@@ -176,7 +170,8 @@
 											},
 											series: series
 										});
-									}else{
+									}
+									if(datastream.id.localeCompare("FBH-VL-Soll")==0{
 										// Build Graph line
 										var graph = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
@@ -194,9 +189,11 @@
 											series: series
 										});
 									}
-								
-								graph.render();
-								state = 1;
+									if(datastream.id.localeCompare("Meta")==0){
+										console.log("Meta");
+									}
+									
+									graph.render();
 
 									var ticksTreatment = 'glow';
 
