@@ -75,6 +75,7 @@
 	function updateFeeds(feedId, datastreamIds, duration, interval) { 
 	//datastreamIds is now initialized, the value of it is 'undifined'
 		xively.feed.get(feedId, function(feedData) {
+//if(feedData.datastreams)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			if(feedData.datastreams) {
 				if(datastreamIds == '' || !datastreamIds) {
 					feedData.datastreams.forEach(function(datastream) {
@@ -238,6 +239,7 @@
 					}
 				});
 			}
+//if(feedData.datastreams)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			$('#loadingData').foundation('reveal', 'close');
 		});
 	}
