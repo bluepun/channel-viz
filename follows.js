@@ -150,12 +150,12 @@
 										color: '#' + dataColor
 									});
 
-									// Initialize Graph DOM Element
-									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
-									
 									if(datastream.id.localeCompare("FBH-VL-Ist")==0){
+							 			// Initialize Graph DOM Element
+										$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
+
 							 			// Build linegraph 'graph'
-										var graph = new Rickshaw.Graph( {
+							 			var graph = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 											width: 600,
 											height: 200,
@@ -173,6 +173,9 @@
 										graph.render();
 									}
 									if(datastream.id.localeCompare("FBH-VL-Soll")==0){
+										// Initialize Graph DOM Element
+										$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graphscatter').attr('id', 'graphscatter-' + feedId + '-' + datastream.id);
+									
 										// Build scatteplot 'graphscatter'
 										var graphscatter = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
