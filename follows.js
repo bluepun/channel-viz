@@ -134,7 +134,7 @@
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .datastream-value').html(datastream.current_value);
 								}
 								$('.datastream-' + datastream.id).removeClass('hidden');
-
+//	-----------------------------------------------------------------------------------------------------Datapoints---------------------------------------------------------------------------------------------------------------------------------------
 								// Historical Datapoints
 								if(datastreamData.datapoints) {
 
@@ -154,7 +154,7 @@
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
 									
 									if(datastream.id.localeCompare("FBH-VL-Ist")==0){
-							 			// Build Graph scatterplot
+							 			// Build linegraph 'graph'
 										var graph = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 											width: 600,
@@ -173,8 +173,8 @@
 										graph.render();
 									}
 									if(datastream.id.localeCompare("FBH-VL-Soll")==0){
-										// Build Graph line
-										var graphline = new Rickshaw.Graph( {
+										// Build scatteplot 'graphscatter'
+										var graphscatter = new Rickshaw.Graph( {
 											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 											width: 600,
 											height: 200,
@@ -189,7 +189,7 @@
 											},
 											series: series
 										});
-										graphline.render();
+										graphscatter.render();
 									}
 									if(datastream.id.localeCompare("Meta")==0){
 										console.log("Meta");
@@ -227,6 +227,7 @@
 	            	   					graph: graph,
 	        	       					element: $('#slider-' + feedId + '-' + datastream.id)
 	               					});
+//	-----------------------------------------------------------------------------------------------------Datapoints---------------------------------------------------------------------------------------------------------------------------------------
 								} else {
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graphWrapper').addClass('hidden');
 								}
