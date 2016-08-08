@@ -211,11 +211,11 @@
 									}
 									if(datastream.id.localeCompare("FBH-VL-Soll")==0){
 										// Initialize Graph DOM Element
-										$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graphscatter').attr('id', 'graphscatter-' + feedId + '-' + datastream.id);
+										$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .graph').attr('id', 'graph-' + feedId + '-' + datastream.id);
 									
 										// Build scatteplot 'graphscatter'
 										var graphscatter = new Rickshaw.Graph( {
-											element: document.querySelector('#graphscatter-' + feedId + '-' + datastream.id),
+											element: document.querySelector('#graph-' + feedId + '-' + datastream.id),
 											width: 600,
 											height: 200,
 											renderer: 'scatterplot',
@@ -239,14 +239,14 @@
 
 									// Define and Render X Axis (Time Values)
 									var xAxis = new Rickshaw.Graph.Axis.Time( {
-										graphscatter: graphscatter,
+										graph: graphscatter,
 										ticksTreatment: ticksTreatment
 									});
 									xAxis.render();
 
 									// Define and Render Y Axis (Datastream Values)
 									var yAxis = new Rickshaw.Graph.Axis.Y( {
-										graphscatter: graphscatter,
+										graph: graphscatter,
 										tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
 										ticksTreatment: ticksTreatment
 									});
@@ -254,7 +254,7 @@
 
 									// Enable Datapoint Hover Values
 									var hoverDetail = new Rickshaw.Graph.HoverDetail({
-										graphscatter: graphscatter,
+										graph: graphscatter,
 										formatter: function(series, x, y) {
 											var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + ' padding: 4px;"></span>';
 											var content = swatch + "&nbsp;&nbsp;" + parseFloat(y) + '&nbsp;&nbsp;<br>';
@@ -264,7 +264,7 @@
 
 									$('#feed-' + feedId + ' .datastreams .datastream-' + datastream.id + ' .slider').prop('id', 'slider-' + feedId + '-' + datastream.id);
 									var slider = new Rickshaw.Graph.RangeSlider({
-	            	   					graphscatter: graphscatter,
+	            	   					graph: graphscatter,
 	        	       					element: $('#slider-' + feedId + '-' + datastream.id)
 	               					});
 									}
